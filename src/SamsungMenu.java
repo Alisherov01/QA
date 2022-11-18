@@ -1,0 +1,61 @@
+import java.util.Scanner;
+
+public class SamsungMenu {
+            public static void samMenu(Company samsung) {
+                Scanner in = new Scanner(System.in);
+                Holding holding = new Holding();
+                Employee[] employees = new Employee[0];
+                Company company = new Company("Samsung",employees, 500000,"Joe");
+
+            Company companySam = new Company("Samsung",employees, 500000,"Joe");
+            Employee employeeSam = new Employee("Dima", 21000,"Director");
+
+                while (true) {
+                    System.out.println("Меню для работы с компанией: ");
+                    System.out.println("1) Вывод информацию о компании");
+                    System.out.println("2) Вывод списока сотрудников компании");
+                    System.out.println("3) Вывод общих расходов на зарплаты сотрудников");
+                    System.out.println("4) Добавление сотрудника в компанию");
+                    System.out.println("5) Удаление сотрудника из компании");
+                    System.out.println("6) Поменять руководителя компании");
+                    System.out.println("0) Выход из главного меню");
+                    int command = in.nextInt();
+                    if (command == 1) {
+                        System.out.println("---------------------------------");
+                        System.out.println(companySam.getName() + " | " + companySam.getManagersName() + " | " + companySam.getCompanyBudget());
+                        System.out.println("---------------------------------");
+                    } else if (command == 2) {
+                        //Реализуйте вывод списка сотрудников этой компании
+                        System.out.println("---------------------------------");
+                        company.listEmployees();
+                        System.out.println("---------------------------------");
+                    } else if (command == 3) {
+                        //Реализуйте подсчет всех зароботных плат сотрудников
+                        System.out.println("---------------------------------");
+                        System.out.println(employeeSam.getSalary());
+                        System.out.println("---------------------------------");
+                    } else if (command == 4) {
+                        //Реализуйте добавление компании в холдинг
+                        System.out.println("---------------------------------");
+                        System.out.println("Работник добавлен!");
+                        company.addEmployeesToCompany(new Employee("Joe",21000,"Manager"));
+                        System.out.println("---------------------------------");
+                    } else if (command == 5) {
+                        //Реализуйте удаление компании из холдинга
+                        System.out.println("---------------------------------");
+                        company.deleteEmployees(in.next());
+                        System.out.println("Работник удален!");
+                        System.out.println("---------------------------------");
+                    } else if (command == 6) {
+                        //Реализуйте смену руководителя компании
+                        System.out.println("Руководитель сменился! ");
+                        Employee emplyee1 = new Employee("Joe",10000,"Manager");
+                        company.changeManager(emplyee1);
+                    } else if (command == 0) {
+                        break;
+                    } else {
+                        System.out.println("Ошибка! Введите пункт из меню");
+                    }
+                }
+            }
+        }
